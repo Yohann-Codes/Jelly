@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Jelly.iml" filepath="$PROJECT_DIR$/Jelly.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jelly-dao/jelly-dao.iml" filepath="$PROJECT_DIR$/jelly-dao/jelly-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jelly-launcher/jelly-launcher.iml" filepath="$PROJECT_DIR$/jelly-launcher/jelly-launcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jelly-serialization/jelly-serialization.iml" filepath="$PROJECT_DIR$/jelly-serialization/jelly-serialization.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jelly-service/jelly-service.iml" filepath="$PROJECT_DIR$/jelly-service/jelly-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jelly-transport/jelly-transport.iml" filepath="$PROJECT_DIR$/jelly-transport/jelly-transport.iml" />
+    </modules>
+  </component>
+</project>
