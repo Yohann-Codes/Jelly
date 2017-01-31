@@ -71,22 +71,31 @@ public class NettyConfigImpl implements NettyConfig {
     }
 
     @Override
-    public void bind(int port) throws InterruptedException {
+    public void bind(int port) {
         bind(port, true);
     }
 
     @Override
-    public void bind(int port, boolean sync) throws InterruptedException {
+    public void bind(int port, boolean sync) {
+        ChannelFuture future = null;
 
-        ChannelFuture future = bootstrap.bind(port).sync();
-        logger.info("服务器启动成功 port=" + port);
+        try {
+            future = bootstrap.bind(port).sync();
+            logger.info("服务器启动成功 port=" + port);
 
-        if (sync) {
-            future.channel().closeFuture().sync();
-        } else {
-            future.channel().closeFuture();
+            if (sync) {
+                future.channel().closeFuture().sync();
+            } else {
+                future.channel().closeFuture();
+            }
+            logger.info("服务器关闭");
+
+        } catch (InterruptedException e) {
+            logger.warn("Netty绑定异常", e);
+        } finally {
+            parentGroup.shutdownGracefully();
+            childGroup.shutdownGracefully();
         }
-        logger.info("服务器关闭");
     }
 
     private void validate() {

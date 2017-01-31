@@ -1,7 +1,7 @@
 package exception;
 
 /**
- * 空参数异常
+ * 空参数异常.
  *
  * @author Yohann.
  */

@@ -3,7 +3,7 @@ package netty;
 import handler.Handler;
 
 /**
- * Netty配置接口
+ * Netty配置接口.
  *
  * @author Yohann.
  */
@@ -52,7 +52,7 @@ public interface NettyConfig {
      *
      * @param port 绑定端口号
      */
-    void bind(int port) throws InterruptedException;
+    void bind(int port);
 
     /**
      * 绑定端口
@@ -60,5 +60,5 @@ public interface NettyConfig {
      * @param port 绑定端口号
      * @param sync 同步->true，异步->false
      */
-    void bind(int port, boolean sync) throws InterruptedException;
+    void bind(int port, boolean sync);
 }
