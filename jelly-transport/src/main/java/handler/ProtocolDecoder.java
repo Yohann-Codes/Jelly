@@ -59,7 +59,7 @@ public class ProtocolDecoder extends ByteToMessageDecoder {
         in.readBytes(bytes);
 
         MessageHolderFactory factory = new MessageHolderFactory();
-        MessageHolder messageHolder = factory.newMessageHolder(sign, type, status, null, bytes);
+        MessageHolder messageHolder = factory.newMessageHolder(sign, type, status, bytes);
 
         out.add(messageHolder);
     }

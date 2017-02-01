@@ -5,6 +5,7 @@ import handler.ProtocolEncoder;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import netty.NettyConfig;
 import netty.NettyConfigImpl;
+import service.Service;
 
 /**
  * 启动类
@@ -17,6 +18,10 @@ public class Launcher {
     }
 
     public static void start() throws InterruptedException {
+
+        // 启动服务
+        new Service().initAndStart();
+
         NettyConfig config = new NettyConfigImpl();
         config.setParentGroup(1);
         config.setChildGroup();

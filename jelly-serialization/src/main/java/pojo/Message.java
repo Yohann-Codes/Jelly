@@ -9,6 +9,7 @@ public class Message {
     private String sender;
     private String receiver;
     private String content;
+    private Long time;
 
     public byte getType() {
         return type;
@@ -42,6 +43,14 @@ public class Message {
         this.content = content;
     }
 
+    public Long getTime() {
+        return time;
+    }
+
+    public void setTime(Long time) {
+        this.time = time;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
@@ -49,6 +58,7 @@ public class Message {
                 ", sender='" + sender + '\'' +
                 ", receiver='" + receiver + '\'' +
                 ", content='" + content + '\'' +
+                ", time=" + time +
                 '}';
     }
 }

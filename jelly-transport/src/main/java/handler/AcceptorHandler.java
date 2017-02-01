@@ -26,7 +26,7 @@ public class AcceptorHandler extends ChannelInboundHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (msg instanceof MessageHolder) {
             MessageHolder messageHolder = (MessageHolder) msg;
-            logger.info(messageHolder);
+            messageHolder.setChannel(ctx.channel());
             boolean offer = receiveQueue.offer(messageHolder);
             if (!offer) {
                 // 服务器繁忙

@@ -1,5 +1,7 @@
 package protocol;
 
+import io.netty.channel.Channel;
+
 import java.util.Arrays;
 
 /**
@@ -20,10 +22,10 @@ public class MessageHolder {
     private byte type;
     // 响应状态
     private byte status;
-    // 对象消息体
-    private Object object;
     // 字节消息体
     private byte[] bytes;
+    // 消息通道
+    private Channel channel;
 
     public byte getSign() {
         return sign;
@@ -49,14 +51,6 @@ public class MessageHolder {
         this.status = status;
     }
 
-    public Object getObject() {
-        return object;
-    }
-
-    public void setObject(Object object) {
-        this.object = object;
-    }
-
     public byte[] getBytes() {
         return bytes;
     }
@@ -65,14 +59,11 @@ public class MessageHolder {
         this.bytes = bytes;
     }
 
-    @Override
-    public String toString() {
-        return "MessageHolder{" +
-                "sign=" + sign +
-                ", type=" + type +
-                ", status=" + status +
-                ", object=" + object +
-                ", bytes=" + Arrays.toString(bytes) +
-                '}';
+    public Channel getChannel() {
+        return channel;
+    }
+
+    public void setChannel(Channel channel) {
+        this.channel = channel;
     }
 }
