@@ -40,7 +40,7 @@ public class ProtocolHeader {
     /** 消息类型 */
     private byte type;
 
-    /** type: 0x11 ~ 0x1f =========================================================================================== */
+    /** type: 0x11 ~ 0x23 =========================================================================================== */
     public static final byte LOGIN                 = 0x11;    // 登录
     public static final byte REGISTER              = 0x12;    // 注册
     public static final byte LOGOUT                = 0x13;    // 登出
@@ -51,20 +51,23 @@ public class ProtocolHeader {
     public static final byte DISBAND_GROUP         = 0x18;    // 解散讨论组
     public static final byte ADD_MEMBER            = 0x19;    // 讨论组添加成员
     public static final byte REMOVE_MEMBER         = 0x1a;    // 讨论组移除成员
-    public static final byte UPDATE_SELF_INFO      = 0x1b;    // 修改个人信息
-    public static final byte LOOK_SELF_INFO        = 0x1c;    // 查看个人信息
-    public static final byte LOOK_OTHER_INFO       = 0x1d;    // 查看他人信息
-    public static final byte LOOK_GROUP_INFO       = 0x1e;    // 查看自己所在讨论组信息
-    public static final byte HEARTBEAT             = 0x1f;    // 心跳
+    public static final byte ADD_FRIEND            = 0x1b;    // 添加好友
+    public static final byte REMOVE_FRIEND         = 0x1c;    // 删除好友
+    public static final byte ALL_FRIEND            = 0x1d;    // 查看已添加好友
+    public static final byte UPDATE_SELF_INFO      = 0x1e;    // 修改个人信息
+    public static final byte LOOK_SELF_INFO        = 0x1f;    // 查看个人信息
+    public static final byte LOOK_FRIEND_INFO      = 0x21;    // 查看他人信息
+    public static final byte LOOK_GROUP_INFO       = 0x22;    // 查看自己所在讨论组信息
+    public static final byte HEARTBEAT             = 0x23;    // 心跳
 
     /** 响应状态 */
     private byte status;
 
-    /** status: 0x1a ~ 0x1c ========================================================================================= */
-    public static final byte SUCCESS               = 0x2a;    // 请求成功
-    public static final byte REQUEST_FAILURE       = 0x2b;    // 请求错误
-    public static final byte SERVER_BUSY           = 0x2c;    // 服务器繁忙
-    public static final byte SERVER_FAILURE        = 0x2d;    // 服务器错误
+    /** status: 0x31 ~ 0x34 ========================================================================================= */
+    public static final byte SUCCESS               = 0x31;    // 49 请求成功
+    public static final byte REQUEST_ERROR         = 0x32;    // 50 请求错误
+    public static final byte SERVER_BUSY           = 0x33;    // 51 服务器繁忙
+    public static final byte SERVER_ERROR          = 0x34;    // 52 服务器错误
 
     /** 消息体长度 */
     private int bodyLength;

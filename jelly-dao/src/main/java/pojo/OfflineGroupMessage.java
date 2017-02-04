@@ -1,15 +1,24 @@
-package bean;
+package pojo;
 
 /**
  * 离线消息对象模型
  * <p>
- * Created by yohann on 2017/1/16.
+ * @author Yohann.
  */
-public class OfflineMsgBean {
+public class OfflineGroupMessage {
     private String sender;
     private String receiver;
+    private String group;
     private String message;
     private long time;
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
+    }
 
     public String getSender() {
         return sender;
@@ -19,12 +28,12 @@ public class OfflineMsgBean {
         this.sender = sender;
     }
 
-    public String getReceiver() {
-        return receiver;
+    public String getGroup() {
+        return group;
     }
 
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     public String getMessage() {

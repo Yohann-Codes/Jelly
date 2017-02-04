@@ -2,31 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fe1d0b6-24a8-4b6d-81fb-19b33feee3d5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/bean/OfflineMsgBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/bean/OfflineMsgGroupBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/bean/UserBean.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/config/Config.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/Dao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/FriendDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/GroupDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/OfflineMsgDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/OfflineMsgGroupDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/UserDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/connection/ConnPool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/connection/TokenFactory.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/connection/TokenPool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/service/Dispatcher.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/service/Service.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/queue/SendQueue.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/connect/Connect.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/connect/JdbcConn.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Friend.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/MyFriend.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/account/Login.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/account/Logout.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/account/Register.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/service/GroupManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/service/GroupTimer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/handler/HeartbeatHandler.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/Dao.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolderFactory.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/bean/OfflineMsgBean.java" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/pojo/OfflineMessage.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/bean/OfflineMsgGroupBean.java" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/pojo/OfflineGroupMessage.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/bean/UserBean.java" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/pojo/User.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/config/Config.java" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/connect/JdbcConfig.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/FriendDao.java" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/operation/FriendDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/GroupDao.java" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/operation/GroupDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/OfflineMsgDao.java" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/operation/MsgDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/OfflineMsgGroupDao.java" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/operation/GroupMsgDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-dao/src/main/java/dao/UserDao.java" afterPath="$PROJECT_DIR$/jelly-dao/src/main/java/operation/UserDao.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-service/src/main/java/connection/ConnPool.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/connection/ConnPool.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-service/src/main/java/connection/TokenFactory.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/connection/TokenFactory.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-service/src/main/java/connection/TokenPool.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/connection/TokenPool.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/queue/ReceiveQueue.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/queue/TaskQueue.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-launcher/jelly-launcher.iml" afterPath="$PROJECT_DIR$/jelly-launcher/jelly-launcher.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-launcher/pom.xml" afterPath="$PROJECT_DIR$/jelly-launcher/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-dao/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/jelly-dao/src/main/resources/log4j.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-launcher/src/main/java/Launcher.java" afterPath="$PROJECT_DIR$/jelly-launcher/src/main/java/Launcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-launcher/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/jelly-launcher/src/main/resources/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Account.java" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Account.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Group.java" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Group.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Heartbeat.java" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Heartbeat.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Info.java" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Info.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Member.java" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Member.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Message.java" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Message.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/MyGroup.java" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/MyGroup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-serialization/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/jelly-serialization/src/main/resources/log4j.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-service/src/main/java/service/Dispatcher.java" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/service/Dispatcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-service/src/main/java/service/Service.java" afterPath="$PROJECT_DIR$/jelly-service/src/main/java/service/Service.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-service/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/jelly-service/src/main/resources/log4j.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/handler/AcceptorHandler.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/handler/AcceptorHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/handler/Handler.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/handler/Handler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/handler/ProtocolDecoder.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/handler/ProtocolDecoder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/handler/ProtocolEncoder.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/handler/ProtocolEncoder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfig.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfigImpl.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfigImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolder.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolderFactory.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolderFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/ProtocolHeader.java" afterPath="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/ProtocolHeader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jelly-transport/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/jelly-transport/src/main/resources/log4j.properties" />
     </list>
     <ignored path="Jelly.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,7 +76,50 @@
     <favorites_list name="Jelly" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="FriendDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/operation/FriendDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1882">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AcceptorHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/handler/AcceptorHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-115">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dispatcher.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/service/Dispatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProtocolHeader.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/protocol/ProtocolHeader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -73,55 +140,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/jelly-serialization/pom.xml" />
-        <option value="$PROJECT_DIR$/jelly-dao/pom.xml" />
-        <option value="$PROJECT_DIR$/jelly-service/pom.xml" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/Config.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/Option.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/NettyConfig.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/NettyConfigImpl.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/ConfigParamNullPointerException.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/ParamNullPointerException.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/NullParamsException.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/Handler.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/netty/OptionConst.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyOption.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/handler/Handler.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/exception/NullParamsException.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/queue/TaskQueueFactory.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/queue/QueueFactory.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/queue/QueueFactoryImpl.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/queue/LinkedBlockQueueFactory.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/queue/OutboundQueue.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/queue/InboundQueue.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/queue/SendQueue.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/queue/ReceiveQueue.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfigImpl.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfig.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/ProtocolHeader.java" />
-        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/json/Serializer.java" />
-        <option value="$PROJECT_DIR$/jelly-service/src/main/java/Service.java" />
-        <option value="$PROJECT_DIR$/jelly-service/src/main/java/ServiceImpl.java" />
-        <option value="$PROJECT_DIR$/jelly-service/src/main/java/service/ServiceImpl.java" />
-        <option value="$PROJECT_DIR$/jelly-launcher/pom.xml" />
-        <option value="$PROJECT_DIR$/jelly-launcher/src/main/java/Launcher.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/handler/ProtocolDecoder.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/handler/ProtocolEncoder.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/person/InfoUpdateReq.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/person/InfoUpdateResp.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/User.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/register/RegReqPacket.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/register/RegisterReq.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/register/RegRespPacket.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/register/RegisterResp.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/relogin/ReLoginReq.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Packet.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/login/LoginReqPacket.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/login/LoginRespPacket.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/logout/LogoutReqPacket.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/account/person/AllFriendReqPacket.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/MyFriend.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Friend.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Group.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Heartbeat.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Info.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Member.java" />
         <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Message.java" />
-        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/config/Config.java" />
-        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/dao/Dao.java" />
-        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/dao/OfflineMsgGroupDao.java" />
-        <option value="$PROJECT_DIR$/jelly-service/src/main/java/connection/TokenFactory.java" />
-        <option value="$PROJECT_DIR$/jelly-service/src/main/java/service/Service.java" />
-        <option value="$PROJECT_DIR$/jelly-service/src/main/java/MessageModel.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolder.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolderFactory.java" />
-        <option value="$PROJECT_DIR$/jelly-service/src/main/java/account/Login.java" />
-        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/handler/AcceptorHandler.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/MyGroup.java" />
+        <option value="$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Account.java" />
+        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfig.java" />
+        <option value="$PROJECT_DIR$/jelly-launcher/src/main/java/Launcher.java" />
+        <option value="$PROJECT_DIR$/jelly-service/src/main/java/account/LoginLogic.java" />
+        <option value="$PROJECT_DIR$/jelly-transport/pom.xml" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/connect/JdbcConfig.java" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/operation/FriendDao.java" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/operation/FriendReqDao.java" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/operation/GroupDao.java" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/operation/GroupMsgDao.java" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/operation/MsgDao.java" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/operation/UserDao.java" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/pojo/OfflineGroupMessage.java" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/pojo/OfflineMessage.java" />
+        <option value="$PROJECT_DIR$/jelly-dao/src/main/java/pojo/User.java" />
+        <option value="$PROJECT_DIR$/jelly-service/src/main/java/service/GroupManager.java" />
+        <option value="$PROJECT_DIR$/jelly-service/src/main/java/service/GroupTimer.java" />
+        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/protocol/ProtocolHeader.java" />
         <option value="$PROJECT_DIR$/jelly-service/src/main/java/service/Dispatcher.java" />
+        <option value="$PROJECT_DIR$/jelly-service/src/main/java/account/Login.java" />
+        <option value="$PROJECT_DIR$/jelly-service/src/main/java/account/Register.java" />
+        <option value="$PROJECT_DIR$/jelly-transport/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfigImpl.java" />
+        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/handler/HeartbeatHandler.java" />
+        <option value="$PROJECT_DIR$/jelly-service/src/main/java/account/Logout.java" />
+        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/handler/AcceptorHandler.java" />
+        <option value="$PROJECT_DIR$/jelly-service/src/main/java/service/Service.java" />
+        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/connection/ConnPool.java" />
+        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/connection/TokenFactory.java" />
+        <option value="$PROJECT_DIR$/jelly-transport/src/main/java/connection/TokenPool.java" />
       </list>
     </option>
   </component>
@@ -235,6 +304,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -398,6 +471,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="jelly-transport" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="connection" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="jelly-service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -439,6 +542,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -498,7 +605,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="connection" />
+              <option name="myItemId" value="account" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -555,6 +662,10 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -567,6 +678,170 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="jelly-serialization" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jelly-launcher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jelly-launcher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jelly-launcher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jelly-launcher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jelly-dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jelly-dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jelly-dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Jelly" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jelly-dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -596,7 +871,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-serialization" />
+              <option name="myItemId" value="jelly-dao" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -612,141 +887,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="json" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-launcher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-launcher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-launcher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-launcher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
+              <option name="myItemId" value="operation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -776,74 +917,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Jelly" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jelly-dao" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bean" />
+              <option name="myItemId" value="connect" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -853,17 +934,25 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/JellyClient-master" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="config" />
+      <recent name="handler" />
+      <recent name="service" />
+      <recent name="exception" />
+      <recent name="connection" />
+      <recent name="protocol" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/jelly-service/src/main/java" />
-      <recent name="$PROJECT_DIR$/jelly-dao/src/main/java" />
-      <recent name="$PROJECT_DIR$/jelly-dao/src/main/java/dao" />
-      <recent name="$PROJECT_DIR$/jelly-serialization/src/main/java" />
+      <recent name="$PROJECT_DIR$/jelly-dao/src/main/resources" />
+      <recent name="$PROJECT_DIR$/jelly-launcher/src/main/resources" />
+      <recent name="$PROJECT_DIR$/jelly-serialization/src/main/resources" />
       <recent name="$PROJECT_DIR$/jelly-service/src/main/resources" />
+      <recent name="$PROJECT_DIR$/jelly-serialization/src/main/java" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Launcher">
@@ -1154,6 +1243,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1163,14 +1253,13 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24313408" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.226979" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1200,350 +1289,396 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/exception/NullParamsException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/handler/Handler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/queue/QueueFactory.java" />
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/queue/LinkedBlockQueueFactory.java" />
-    <entry file="file://$PROJECT_DIR$/jelly-serialization/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="19" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1195">
-          <caret line="75" column="42" selection-start-line="75" selection-start-column="42" selection-end-line="75" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-service/pom.xml">
+    <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Friend.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-          <folding />
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfigImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/service/Service.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/service/Task.java" />
-    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/service/TaskExecutor.java" />
     <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Group.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="289">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Heartbeat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Member.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/MyGroup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-launcher/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-launcher/src/main/java/Launcher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Repository/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final-sources.jar!/io/netty/buffer/ByteBuf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1645">
-          <caret line="1863" column="28" selection-start-line="1863" selection-start-column="28" selection-end-line="1863" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/handler/ProtocolEncoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/dao/FriendReqDao.java" />
-    <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="204">
+          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Info.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="799">
+          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/connection/ConnPool.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-726">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/util/concurrent/BlockingQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="179" column="17" selection-start-line="179" selection-start-column="17" selection-end-line="179" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/dao/GroupDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/config/Config.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/dao/OfflineMsgGroupDao.java">
+    <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Member.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="35" column="85" selection-start-line="35" selection-start-column="85" selection-end-line="35" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/json/Serializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/queue/SendQueue.java" />
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/bean/OfflineMsgBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/bean/UserBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/dao/UserDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/dao/OfflineMsgDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/dao/Dao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/dao/FriendDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/bean/OfflineMsgGroupBean.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/queue/ReceiveQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/Message.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/connection/TokenFactory.java">
+    <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/MyFriend.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="102">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/connection/TokenPool.java">
+    <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/java/pojo/MyGroup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="44" column="56" selection-start-line="44" selection-start-column="56" selection-end-line="44" selection-end-column="56" />
-          <folding>
-            <element signature="e#401#402#0" expanded="false" />
-            <element signature="e#443#444#0" expanded="false" />
-            <element signature="e#577#578#0" expanded="false" />
-            <element signature="e#622#623#0" expanded="false" />
-            <element signature="e#759#760#0" expanded="false" />
-            <element signature="e#806#807#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/MessageModel.java" />
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolder.java">
+    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/service/GroupManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="29" column="27" selection-start-line="29" selection-start-column="27" selection-end-line="29" selection-end-column="27" />
+        <state relative-caret-position="119">
+          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/handler/ProtocolDecoder.java">
+    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/service/GroupTimer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="61" column="56" selection-start-line="61" selection-start-column="56" selection-end-line="61" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state relative-caret-position="578">
+          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/service/Service.java">
+    <entry file="jar://$USER_HOME$/Repository/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final-sources.jar!/io/netty/channel/ChannelHandlerContext.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
-          <folding />
+        <state relative-caret-position="225">
+          <caret line="174" column="26" selection-start-line="174" selection-start-column="26" selection-end-line="174" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/protocol/ProtocolHeader.java">
+    <entry file="jar://$USER_HOME$/Repository/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final-sources.jar!/io/netty/util/ReferenceCounted.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="60" column="24" selection-start-line="60" selection-start-column="24" selection-end-line="60" selection-end-column="24" />
-          <folding />
+        <state relative-caret-position="405">
+          <caret line="67" column="12" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolderFactory.java">
+    <entry file="jar://$USER_HOME$/Repository/io/netty/netty-all/4.1.6.Final/netty-all-4.1.6.Final-sources.jar!/io/netty/util/ReferenceCountUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="83" column="47" selection-start-line="83" selection-start-column="47" selection-end-line="83" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-launcher/src/main/java/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <caret line="18" column="27" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/handler/AcceptorHandler.java">
+    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-serialization/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-launcher/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="79" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/protocol/MessageHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-199">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="271" column="6" selection-start-line="271" selection-start-column="6" selection-end-line="271" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/account/Logout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/account/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="85" column="23" selection-start-line="85" selection-start-column="23" selection-end-line="85" selection-end-column="23" />
+        <state relative-caret-position="401">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/account/Register.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/service/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="46" column="41" selection-start-line="46" selection-start-column="41" selection-end-line="46" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/connect/Connect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/connect/JdbcConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/connect/JdbcConn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/operation/FriendReqDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/operation/GroupDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/operation/GroupMsgDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/operation/MsgDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/operation/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/pojo/FriendAddReq.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/pojo/OfflineGroupMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/pojo/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/connection/TokenFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/connection/TokenPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/exception/NullParamsException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/pojo/FriendReplyReq.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/queue/TaskQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/connection/ConnPool.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-505">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/netty/NettyConfigImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="95" column="42" selection-start-line="95" selection-start-column="42" selection-end-line="95" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/handler/ProtocolDecoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/handler/HeartbeatHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-dao/src/main/java/operation/FriendDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1882">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/handler/AcceptorHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-115">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/service/Dispatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="5" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="243">
+          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-service/src/main/java/message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jelly-transport/src/main/java/protocol/ProtocolHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>

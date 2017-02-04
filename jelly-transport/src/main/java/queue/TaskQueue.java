@@ -12,12 +12,12 @@ import java.util.concurrent.LinkedBlockingDeque;
  *
  * @author Yohann.
  */
-public class ReceiveQueue {
+public class TaskQueue {
     private volatile static BlockingQueue<MessageHolder> queue;
 
     public static BlockingQueue<MessageHolder> getQueue() {
         if (queue == null) {
-            synchronized (ReceiveQueue.class) {
+            synchronized (TaskQueue.class) {
                 if (queue == null) {
                     queue = new LinkedBlockingDeque<>(1024);
                 }

@@ -1,6 +1,7 @@
-package dao;
+package operation;
 
-import bean.OfflineMsgGroupBean;
+import connect.JdbcConn;
+import pojo.OfflineGroupMessage;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -10,19 +11,9 @@ import java.util.List;
 /**
  * 离线消息访问类
  * <p>
- * Created by yohann on 2017/1/16.
+ * @author Yohann.
  */
-public class OfflineMsgGroupDao extends Dao {
-
-    /**
-     * 连接MySQL数据库
-     *
-     * @throws ClassNotFoundException
-     * @throws SQLException
-     */
-    public OfflineMsgGroupDao() throws ClassNotFoundException, SQLException {
-        super();
-    }
+public class GroupMsgDao extends JdbcConn {
 
     /**
      * 添加离线消息
@@ -45,7 +36,7 @@ public class OfflineMsgGroupDao extends Dao {
             pstmt.setTimestamp(5, time);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL添加离线消息出现异常", e);
+            logger.warn("MySQL添加离线消息出现异常", e);
         }
         return row;
     }
@@ -64,7 +55,7 @@ public class OfflineMsgGroupDao extends Dao {
             pstmt.setString(1, receiver);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL删除离线消息出现异常", e);
+            logger.warn("MySQL删除离线消息出现异常", e);
         }
         return row;
     }
@@ -75,15 +66,15 @@ public class OfflineMsgGroupDao extends Dao {
      * @param receiver
      * @return
      */
-    public List<OfflineMsgGroupBean> queryMsg(String receiver) {
-        List<OfflineMsgGroupBean> offlineMsgs = new ArrayList<OfflineMsgGroupBean>();
+    public List<OfflineGroupMessage> queryMsg(String receiver) {
+        List<OfflineGroupMessage> offlineMsgs = new ArrayList<OfflineGroupMessage>();
         String sql = "SELECT * FROM offline_msg_group WHERE receiver = ?";
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, receiver);
             resultSet = pstmt.executeQuery();
             while (resultSet.next()) {
-                OfflineMsgGroupBean offlineMsg = new OfflineMsgGroupBean();
+                OfflineGroupMessage offlineMsg = new OfflineGroupMessage();
                 offlineMsg.setSender(resultSet.getString("sender"));
                 offlineMsg.setReceiver(resultSet.getString("receiver"));
                 offlineMsg.setGroup(resultSet.getString("name"));
@@ -92,7 +83,7 @@ public class OfflineMsgGroupDao extends Dao {
                 offlineMsgs.add(offlineMsg);
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询离线消息出现异常", e);
+            logger.warn("MySQL查询离线消息出现异常", e);
         }
         return offlineMsgs;
     }

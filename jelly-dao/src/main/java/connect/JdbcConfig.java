@@ -1,15 +1,15 @@
-package config;
+package connect;
 
 /**
  * 配置信息
  * <p>
- * Created by yohann on 2017/1/8.
+ * @author Yohann.
  */
-public class Config {
+public class JdbcConfig {
     /**
      * 数据库地址
      */
-    public static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/yim";
+    public static final String DB_URL = "jdbc:mysql://123.206.72.175:3306/yim";
 
     /**
      * 数据库用户名

@@ -5,19 +5,10 @@ package pojo;
  */
 public class Message {
     // PERSON_MESSAGE, GROUP_MESSAGE
-    private byte type;
     private String sender;
     private String receiver;
     private String content;
     private Long time;
-
-    public byte getType() {
-        return type;
-    }
-
-    public void setType(byte type) {
-        this.type = type;
-    }
 
     public String getSender() {
         return sender;
@@ -49,16 +40,5 @@ public class Message {
 
     public void setTime(Long time) {
         this.time = time;
-    }
-
-    @Override
-    public String toString() {
-        return "Message{" +
-                "type=" + type +
-                ", sender='" + sender + '\'' +
-                ", receiver='" + receiver + '\'' +
-                ", content='" + content + '\'' +
-                ", time=" + time +
-                '}';
     }
 }

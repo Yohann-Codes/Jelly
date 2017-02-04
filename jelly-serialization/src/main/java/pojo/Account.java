@@ -4,19 +4,9 @@ package pojo;
  * @author Yohann.
  */
 public class Account {
-    // LOGIN, REGISTER, LOGOUT, RECONN
-    private byte type;
     private String username;
     private String password;
-    private String token;
-
-    public byte getType() {
-        return type;
-    }
-
-    public void setType(byte type) {
-        this.type = type;
-    }
+    private Long token;
 
     public String getUsername() {
         return username;
@@ -34,21 +24,11 @@ public class Account {
         this.password = password;
     }
 
-    public String getToken() {
+    public Long getToken() {
         return token;
     }
 
-    public void setToken(String token) {
+    public void setToken(Long token) {
         this.token = token;
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "type=" + type +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", token='" + token + '\'' +
-                '}';
     }
 }

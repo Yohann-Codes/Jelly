@@ -1,14 +1,15 @@
 package netty;
 
 import exception.NullParamsException;
+import handler.AcceptorHandler;
 import handler.Handler;
+import handler.ProtocolDecoder;
+import handler.ProtocolEncoder;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelPipeline;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
+import io.netty.handler.timeout.IdleStateHandler;
 import org.apache.log4j.Logger;
 
 /**
@@ -55,7 +56,7 @@ public class NettyConfigImpl implements NettyConfig {
 
     @Override
     @SuppressWarnings("unchecked")
-    public void setHandler(Handler[] handlers) {
+    public void setHandler() {
         validate();
         bootstrap.group(parentGroup, childGroup);
         bootstrap.channel(channelClass);
@@ -63,11 +64,13 @@ public class NettyConfigImpl implements NettyConfig {
             @Override
             protected void initChannel(SocketChannel ch) throws Exception {
                 ChannelPipeline pipeline = ch.pipeline();
-                for (Handler handler : handlers) {
-                    pipeline.addLast(handler.getName(), handler.getHandler());
-                }
+                pipeline.addLast("ProtocolDecoder", new ProtocolDecoder());
+                pipeline.addLast("ProtocolEncoder", new ProtocolEncoder());
+                pipeline.addLast("IdleStateHandler", new IdleStateHandler(6, 0, 0));
+                pipeline.addLast("AcceptorHandler", new AcceptorHandler());
             }
-        });
+        }).option(ChannelOption.SO_BACKLOG, 128)
+                .childOption(ChannelOption.SO_KEEPALIVE, true);
     }
 
     @Override
@@ -81,7 +84,7 @@ public class NettyConfigImpl implements NettyConfig {
 
         try {
             future = bootstrap.bind(port).sync();
-            logger.info("服务器启动成功 port=" + port);
+            logger.info("服务器启动成功 监听端口(" + port + ")");
 
             if (sync) {
                 future.channel().closeFuture().sync();

@@ -42,10 +42,8 @@ public interface NettyConfig {
 
     /**
      * 设置handler
-     *
-     * @param handlers 稳定的handler
      */
-    void setHandler(Handler[] handlers);
+    void setHandler();
 
     /**
      * 同步绑定端口

@@ -1,4 +1,6 @@
-package dao;
+package operation;
+
+import connect.JdbcConn;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -7,18 +9,9 @@ import java.util.List;
 /**
  * 好友数据访问类
  * <p>
- * Created by yohann on 2017/1/17.
+ * @author Yohann.
  */
-public class FriendDao extends Dao {
-    /**
-     * 连接MySQL数据库
-     *
-     * @throws ClassNotFoundException
-     * @throws SQLException
-     */
-    public FriendDao() throws ClassNotFoundException, SQLException {
-        super();
-    }
+public class FriendDao extends JdbcConn {
 
     /**
      * 在好友表中添加账户
@@ -26,7 +19,7 @@ public class FriendDao extends Dao {
      * @param username
      * @return
      */
-    public int insertAccount(String username) {
+     public int insertAccount(String username) {
         String sql = "INSERT INTO friends (username) VALUES (?)";
         int row = 0;
         try {
@@ -34,7 +27,7 @@ public class FriendDao extends Dao {
             pstmt.setString(1, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL添加账户出现异常", e);
+            logger.warn("MySQL添加账户出现异常", e);
         }
         return row;
     }
@@ -56,7 +49,7 @@ public class FriendDao extends Dao {
             pstmt.setString(2, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL添加账户出现异常", e);
+            logger.warn("MySQL添加好友出现异常", e);
         }
         return row;
     }
@@ -76,7 +69,7 @@ public class FriendDao extends Dao {
             pstmt.setString(2, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL删除好友出现异常", e);
+            logger.warn("MySQL删除好友出现异常", e);
         }
         return row;
     }
@@ -103,7 +96,7 @@ public class FriendDao extends Dao {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询好友空位出现异常", e);
+            logger.warn("MySQL查询所有好友出现异常", e);
         }
         return friends;
     }
@@ -128,7 +121,7 @@ public class FriendDao extends Dao {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询好友空位出现异常", e);
+            logger.warn("MySQL查询好友空位出现异常", e);
         }
         return null;
     }
@@ -154,7 +147,7 @@ public class FriendDao extends Dao {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询好友所在列名出现异常", e);
+            logger.warn("MySQL查询好友所在列名出现异常", e);
         }
         return null;
     }

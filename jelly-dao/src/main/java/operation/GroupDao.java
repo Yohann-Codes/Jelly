@@ -1,4 +1,6 @@
-package dao;
+package operation;
+
+import connect.JdbcConn;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,19 +11,9 @@ import java.util.Map;
 /**
  * 讨论组数据访问接口
  * <p>
- * Created by yohann on 2017/1/19.
+ * @author Yohann.
  */
-public class GroupDao extends Dao {
-
-    /**
-     * 连接MySQL数据库
-     *
-     * @throws ClassNotFoundException
-     * @throws SQLException
-     */
-    public GroupDao() throws ClassNotFoundException, SQLException {
-        super();
-    }
+public class GroupDao extends JdbcConn {
 
     /**
      * 添加一个讨论组
@@ -39,7 +31,7 @@ public class GroupDao extends Dao {
             pstmt.setString(2, creater);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL添加讨论组出现异常", e);
+            logger.warn("MySQL添加讨论组出现异常", e);
         }
         return row;
     }
@@ -58,7 +50,7 @@ public class GroupDao extends Dao {
             pstmt.setString(1, groupName);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL删除讨论组信息出现异常", e);
+            logger.warn("MySQL删除讨论组信息出现异常", e);
         }
         return row;
     }
@@ -83,7 +75,7 @@ public class GroupDao extends Dao {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询讨论组成员空位出现异常", e);
+            logger.warn("MySQL查询讨论组成员空位出现异常", e);
         }
         return null;
     }
@@ -105,7 +97,7 @@ public class GroupDao extends Dao {
             pstmt.setString(2, groupName);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL添加讨论组成员出现异常", e);
+            logger.warn("MySQL添加讨论组成员出现异常", e);
         }
         return row;
     }
@@ -131,7 +123,7 @@ public class GroupDao extends Dao {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询成员所在列名出现异常", e);
+            logger.warn("MySQL查询成员所在列名出现异常", e);
         }
         return null;
     }
@@ -152,7 +144,7 @@ public class GroupDao extends Dao {
             pstmt.setString(2, groupName);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL删除讨论组成员出现异常", e);
+            logger.warn("MySQL删除讨论组成员出现异常", e);
         }
         return row;
     }
@@ -181,7 +173,7 @@ public class GroupDao extends Dao {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询讨论组成员出现异常", e);
+            logger.warn("MySQL查询讨论组成员出现异常", e);
         }
         return members;
     }
@@ -220,7 +212,7 @@ public class GroupDao extends Dao {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询全部讨论组出现异常", e);
+            logger.warn("MySQL查询全部讨论组出现异常", e);
         }
         return groups;
     }

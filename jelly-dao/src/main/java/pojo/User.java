@@ -1,11 +1,11 @@
-package bean;
+package pojo;
 
 /**
  * 用户信息对象模型
  * <p>
- * Created by yohann on 2017/1/14.
+ * @author Yohann.
  */
-public class UserBean {
+public class User {
     private String username;
     private String password;
     private String name;

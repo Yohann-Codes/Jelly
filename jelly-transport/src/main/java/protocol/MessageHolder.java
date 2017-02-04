@@ -2,15 +2,13 @@ package protocol;
 
 import io.netty.channel.Channel;
 
-import java.util.Arrays;
-
 /**
  * 消息载体.
  *
  * 传输模块与服务模块之间双向数据传输载体:
  *
- *                     MessageHolder
- * Transport Module <----------------> Service Module
+ *                   MessageHolder
+ * Service Module <----------------> Transport Module
  *
  * @author Yohann.
  */
@@ -22,9 +20,9 @@ public class MessageHolder {
     private byte type;
     // 响应状态
     private byte status;
-    // 字节消息体
-    private byte[] bytes;
-    // 消息通道
+    // Json消息体
+    private String body;
+    // 接收到消息的通道
     private Channel channel;
 
     public byte getSign() {
@@ -51,12 +49,12 @@ public class MessageHolder {
         this.status = status;
     }
 
-    public byte[] getBytes() {
-        return bytes;
+    public String getBody() {
+        return body;
     }
 
-    public void setBytes(byte[] bytes) {
-        this.bytes = bytes;
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public Channel getChannel() {
@@ -65,5 +63,16 @@ public class MessageHolder {
 
     public void setChannel(Channel channel) {
         this.channel = channel;
+    }
+
+    @Override
+    public String toString() {
+        return "MessageHolder{" +
+                "sign=" + sign +
+                ", type=" + type +
+                ", status=" + status +
+                ", body='" + body + '\'' +
+                ", channel=" + channel +
+                '}';
     }
 }

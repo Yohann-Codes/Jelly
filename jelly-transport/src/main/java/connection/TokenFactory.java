@@ -1,13 +1,17 @@
 package connection;
 
+import org.apache.log4j.Logger;
+
 import java.util.Random;
 
 /**
  * 用户创建token
  * <p>
- * Created by yohann on 2017/1/15.
+ * @author Yohann.
  */
 public class TokenFactory {
+    private static final Logger logger = Logger.getLogger(TokenFactory.class);
+
     public TokenFactory() {
     }
 
@@ -17,13 +21,14 @@ public class TokenFactory {
      * @return
      */
     public Long generate() {
-        Long token = null;
+        Long token;
 
         Random random = new Random();
 
         while (isExist(token = random.nextLong())) {
             token = random.nextLong();
         }
+        logger.info("创建Token(" + token + ")");
 
         return token;
     }

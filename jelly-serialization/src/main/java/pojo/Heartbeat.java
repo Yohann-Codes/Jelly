@@ -13,11 +13,4 @@ public class Heartbeat {
     public void setUsername(String username) {
         this.username = username;
     }
-
-    @Override
-    public String toString() {
-        return "Heartbeat{" +
-                "username='" + username + '\'' +
-                '}';
-    }
 }

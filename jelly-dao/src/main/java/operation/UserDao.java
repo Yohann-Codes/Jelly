@@ -1,6 +1,7 @@
-package dao;
+package operation;
 
-import bean.UserBean;
+import pojo.User;
+import connect.JdbcConn;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,19 +10,9 @@ import java.util.List;
 /**
  * 用户数据访问类
  * <p>
- * Created by yohann on 2017/1/14.
+ * @author Yohann.
  */
-public class UserDao extends Dao {
-
-    /**
-     * 连接MySQL数据库
-     *
-     * @throws ClassNotFoundException
-     * @throws SQLException
-     */
-    public UserDao() throws ClassNotFoundException, SQLException {
-        super();
-    }
+public class UserDao extends JdbcConn {
 
     /**
      * 添加用户
@@ -39,7 +30,7 @@ public class UserDao extends Dao {
             pstmt.setString(2, password);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL添加用户出现异常", e);
+            logger.warn("MySQL添加用户出现异常", e);
         }
         return row;
     }
@@ -50,15 +41,15 @@ public class UserDao extends Dao {
      * @param username
      * @return
      */
-    public List<UserBean> queryByUsername(String username) {
-        List<UserBean> users = new ArrayList<UserBean>();
+    public List<User> queryByUsername(String username) {
+        List<User> users = new ArrayList<User>();
         String sql = "SELECT * FROM users WHERE username = ?";
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, username);
             resultSet = pstmt.executeQuery();
             if (resultSet.next()) {
-                UserBean user = new UserBean();
+                User user = new User();
                 user.setUsername(resultSet.getString("username"));
                 user.setPassword(resultSet.getString("password"));
                 user.setName(resultSet.getString("name"));
@@ -70,7 +61,7 @@ public class UserDao extends Dao {
                 users.add(user);
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询用户出现异常", e);
+            logger.warn("MySQL查询用户出现异常", e);
         }
         return users;
     }
@@ -91,14 +82,7 @@ public class UserDao extends Dao {
             pstmt.setString(2, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                pstmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            logger.warn("MySQL修改姓名出现异常", e);
         }
         return row;
     }
@@ -119,14 +103,7 @@ public class UserDao extends Dao {
             pstmt.setString(2, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                pstmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            logger.warn("MySQL修改密码出现异常", e);
         }
         return row;
     }
@@ -147,14 +124,7 @@ public class UserDao extends Dao {
             pstmt.setString(2, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                pstmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            logger.warn("MySQL修改性别出现异常", e);
         }
         return row;
     }
@@ -175,14 +145,7 @@ public class UserDao extends Dao {
             pstmt.setString(2, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                pstmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            logger.warn("MySQL修改年龄出现异常", e);
         }
         return row;
     }
@@ -203,14 +166,7 @@ public class UserDao extends Dao {
             pstmt.setString(2, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                pstmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            logger.warn("MySQL修改电话出现异常", e);
         }
         return row;
     }
@@ -231,14 +187,7 @@ public class UserDao extends Dao {
             pstmt.setString(2, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                pstmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            logger.warn("MySQL修改地址出现异常", e);
         }
         return row;
     }
@@ -259,14 +208,7 @@ public class UserDao extends Dao {
             pstmt.setString(2, username);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                pstmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            logger.warn("MySQL修改自我介绍出现异常", e);
         }
         return row;
     }

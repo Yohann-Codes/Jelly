@@ -1,17 +1,20 @@
 package connection;
 
+import org.apache.log4j.Logger;
+
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * 维护token
  * <p>
- * Created by yohann on 2017/1/15.
+ * @author Yohann.
  */
 public class TokenPool {
+    private static final Logger logger = Logger.getLogger(TokenPool.class);
 
     // 用于存放已生成的token
-    private static Set<Long> tokenSet = new HashSet<Long>();
+    private static Set<Long> tokenSet = new HashSet<>();
 
     private TokenPool() {
     }
@@ -23,7 +26,12 @@ public class TokenPool {
      * @return
      */
     public synchronized static boolean add(Long token) {
-        return tokenSet.add(token);
+        if (tokenSet.add(token)) {
+            logger.info("Token池 添加成功(token=" + token);
+            return true;
+        }
+        logger.warn("Token池 添加失败(token=" + token);
+        return false;
     }
 
     /**
@@ -33,7 +41,12 @@ public class TokenPool {
      * @return
      */
     public synchronized static boolean remove(Long token) {
-        return tokenSet.remove(token);
+        if (tokenSet.remove(token)) {
+            logger.info("Token池 移除成功(token=" + token);
+            return true;
+        }
+        logger.warn("Token池 移除失败(token=" + token);
+        return false;
     }
 
     /**

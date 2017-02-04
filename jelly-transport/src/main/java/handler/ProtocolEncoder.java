@@ -32,13 +32,15 @@ import protocol.ProtocolHeader;
 public class ProtocolEncoder extends MessageToByteEncoder<MessageHolder> {
     @Override
     protected void encode(ChannelHandlerContext ctx, MessageHolder msg, ByteBuf out) throws Exception {
-        byte[] bytes = msg.getBytes();
+        String body = msg.getBody();
 
-        if (bytes == null) {
-            throw new NullParamsException("bytes == null");
+        if (body == null) {
+            throw new NullParamsException("body == null");
         }
 
         // 编码
+        byte[] bytes = body.getBytes("utf-8");
+
         out.writeShort(ProtocolHeader.MAGIC)
                 .writeByte(msg.getSign())
                 .writeByte(msg.getType())

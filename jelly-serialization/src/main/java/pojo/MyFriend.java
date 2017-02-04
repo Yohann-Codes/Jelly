@@ -1,11 +1,13 @@
 package pojo;
 
+import java.util.List;
+
 /**
  * @author Yohann.
  */
-public class Group {
+public class MyFriend {
     private String username;
-    private String groupName;
+    private List<String> friends;
 
     public String getUsername() {
         return username;
@@ -15,11 +17,11 @@ public class Group {
         this.username = username;
     }
 
-    public String getGroupName() {
-        return groupName;
+    public List<String> getFriends() {
+        return friends;
     }
 
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
+    public void setFriends(List<String> friends) {
+        this.friends = friends;
     }
 }

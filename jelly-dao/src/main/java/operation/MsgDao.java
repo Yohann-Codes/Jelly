@@ -1,6 +1,7 @@
-package dao;
+package operation;
 
-import bean.OfflineMsgBean;
+import connect.JdbcConn;
+import pojo.OfflineMessage;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -10,19 +11,9 @@ import java.util.List;
 /**
  * 离线消息访问类
  * <p>
- * Created by yohann on 2017/1/16.
+ * @author Yohann.
  */
-public class OfflineMsgDao extends Dao {
-
-    /**
-     * 连接MySQL数据库
-     *
-     * @throws ClassNotFoundException
-     * @throws SQLException
-     */
-    public OfflineMsgDao() throws ClassNotFoundException, SQLException {
-        super();
-    }
+public class MsgDao extends JdbcConn {
 
     /**
      * 添加离线消息
@@ -44,7 +35,7 @@ public class OfflineMsgDao extends Dao {
             pstmt.setTimestamp(4, time);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL添加离线消息出现异常", e);
+            logger.warn("MySQL添加离线消息出现异常", e);
         }
         return row;
     }
@@ -63,7 +54,7 @@ public class OfflineMsgDao extends Dao {
             pstmt.setString(1, receiver);
             row = pstmt.executeUpdate();
         } catch (SQLException e) {
-            LOGGER.warn("MySQL删除离线消息出现异常", e);
+            logger.warn("MySQL删除离线消息出现异常", e);
         }
         return row;
     }
@@ -74,15 +65,15 @@ public class OfflineMsgDao extends Dao {
      * @param receiver
      * @return
      */
-    public List<OfflineMsgBean> queryMsg(String receiver) {
-        List<OfflineMsgBean> offlineMsgs = new ArrayList<OfflineMsgBean>();
+    public List<OfflineMessage> queryMsg(String receiver) {
+        List<OfflineMessage> offlineMsgs = new ArrayList<OfflineMessage>();
         String sql = "SELECT * FROM offline_msg WHERE receiver = ?";
         try {
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, receiver);
             resultSet = pstmt.executeQuery();
             while (resultSet.next()) {
-                OfflineMsgBean offlineMsg = new OfflineMsgBean();
+                OfflineMessage offlineMsg = new OfflineMessage();
                 offlineMsg.setSender(resultSet.getString("sender"));
                 offlineMsg.setReceiver(resultSet.getString("receiver"));
                 offlineMsg.setMessage(resultSet.getString("message"));
@@ -90,7 +81,7 @@ public class OfflineMsgDao extends Dao {
                 offlineMsgs.add(offlineMsg);
             }
         } catch (SQLException e) {
-            LOGGER.warn("MySQL查询离线消息出现异常", e);
+            logger.warn("MySQL查询离线消息出现异常", e);
         }
         return offlineMsgs;
     }

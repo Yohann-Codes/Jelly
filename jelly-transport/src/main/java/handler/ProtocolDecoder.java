@@ -4,7 +4,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import protocol.MessageHolder;
-import protocol.MessageHolderFactory;
 import protocol.ProtocolHeader;
 
 import java.util.List;
@@ -58,8 +57,11 @@ public class ProtocolDecoder extends ByteToMessageDecoder {
         byte[] bytes = new byte[bodyLength];
         in.readBytes(bytes);
 
-        MessageHolderFactory factory = new MessageHolderFactory();
-        MessageHolder messageHolder = factory.newMessageHolder(sign, type, status, bytes);
+        MessageHolder messageHolder = new MessageHolder();
+        messageHolder.setSign(sign);
+        messageHolder.setType(type);
+        messageHolder.setStatus(status);
+        messageHolder.setBody(new String(bytes, "utf-8"));
 
         out.add(messageHolder);
     }
