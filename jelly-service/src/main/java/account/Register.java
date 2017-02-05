@@ -26,12 +26,10 @@ public class Register {
     private String username;
     private String password;
     private Channel channel;
-    private Account account;
 
     public Register(Account account, Channel channel) {
         username = account.getUsername();
         password = account.getPassword();
-        this.account = account;
         this.channel = channel;
     }
 
@@ -52,6 +50,7 @@ public class Register {
                 if (r1 == 1 && r2 == 1) {
                     // 成功
                     success();
+                    logger.info(username + " 注册成功");
                 } else {
                     // 失败，数据库错误
                     defeat(ProtocolHeader.SERVER_ERROR);
@@ -60,6 +59,7 @@ public class Register {
             } else {
                 // 失败，用户名已存在
                 defeat(ProtocolHeader.REQUEST_ERROR);
+                logger.info("注册失败(用户名已存在)");
             }
         } finally {
             if (userDao != null) {

@@ -9,13 +9,17 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.util.concurrent.Future;
 import json.Serializer;
+import operation.MsgDao;
 import operation.UserDao;
 import org.apache.log4j.Logger;
 import pojo.Account;
+import pojo.Message;
+import pojo.OfflineMessage;
 import pojo.User;
 import protocol.MessageHolder;
 import protocol.ProtocolHeader;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -30,12 +34,10 @@ public class Login {
     private Channel channel;
     private String username;
     private String password;
-    private Account account;
 
     public Login(Account account, Channel channel) {
         username = account.getUsername();
         password = account.getPassword();
-        this.account = account;
         this.channel = channel;
     }
 
@@ -176,10 +178,58 @@ public class Login {
     }
 
     private void personMessage() {
-
+        MsgDao msgDao = null;
+        try {
+            msgDao = new MsgDao();
+            msgDao.connect();
+            // 查询消息
+            List<OfflineMessage> offlineMsgs = msgDao.queryMsg(username);
+            if (offlineMsgs.size() != 0) {
+                // 一个一个发送
+                for (int i = 0; i < offlineMsgs.size(); i++) {
+                    OfflineMessage offlineMessage = offlineMsgs.get(i);
+                    Message message = new Message();
+                    message.setSender(offlineMessage.getSender());
+                    message.setReceiver(offlineMessage.getReceiver());
+                    message.setContent(offlineMessage.getMessage());
+                    message.setTime(offlineMessage.getTime());
+                    sendMessage(channel, Serializer.serialize(message));
+                    logger.info("个人消息(离线) " + message.getSender()
+                            + "-->" + message.getReceiver() + " 发送成功");
+                }
+                // 删除离线消息
+                int row = msgDao.removeMsg(username);
+                if (row == offlineMsgs.size()) {
+                } else {
+                    logger.warn("数据库错误");
+                }
+            } else {
+                return;
+            }
+        } finally {
+            if (msgDao != null) {
+                msgDao.close();
+            }
+        }
     }
 
     private void groupMessage() {
 
+    }
+
+    /**
+     * 发送消息
+     *
+     * @param recChannel
+     * @param body
+     * @return
+     */
+    private Future sendMessage(Channel recChannel, String body) {
+        MessageHolder messageHolder = new MessageHolder();
+        messageHolder.setSign(ProtocolHeader.NOTICE);
+        messageHolder.setType(ProtocolHeader.PERSON_MESSAGE);
+        messageHolder.setStatus((byte) 0);
+        messageHolder.setBody(body);
+        return recChannel.writeAndFlush(messageHolder);
     }
 }

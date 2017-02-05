@@ -56,7 +56,7 @@ public class ProtocolHeader {
     public static final byte ALL_FRIEND            = 0x1d;    // 查看已添加好友
     public static final byte UPDATE_SELF_INFO      = 0x1e;    // 修改个人信息
     public static final byte LOOK_SELF_INFO        = 0x1f;    // 查看个人信息
-    public static final byte LOOK_FRIEND_INFO      = 0x21;    // 查看他人信息
+    public static final byte LOOK_FRIEND_INFO      = 0x21;    // 查看好友信息
     public static final byte LOOK_GROUP_INFO       = 0x22;    // 查看自己所在讨论组信息
     public static final byte HEARTBEAT             = 0x23;    // 心跳
 

@@ -17,12 +17,10 @@ public class Logout {
 
     private Account account;
     private Channel channel;
-    private String username;
 
     public Logout(Account account, Channel channel) {
         this.account = account;
         this.channel = channel;
-        username = account.getUsername();
     }
 
     public void deal() {

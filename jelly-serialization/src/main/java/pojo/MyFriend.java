@@ -1,13 +1,14 @@
 package pojo;
 
-import java.util.List;
+import java.util.Map;
 
 /**
  * @author Yohann.
  */
 public class MyFriend {
     private String username;
-    private List<String> friends;
+    // key->好友用户名，value->是否在线
+    private Map<String, Boolean> friends;
 
     public String getUsername() {
         return username;
@@ -17,11 +18,11 @@ public class MyFriend {
         this.username = username;
     }
 
-    public List<String> getFriends() {
+    public Map<String, Boolean> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<String> friends) {
+    public void setFriends(Map<String, Boolean> friends) {
         this.friends = friends;
     }
 }
