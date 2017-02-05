@@ -6,6 +6,10 @@ import account.Register;
 import friend.AllFriend;
 import friend.FriendAdd;
 import friend.FriendRemove;
+import group.CreateGroup;
+import group.DisbandGroup;
+import group.MemberAdd;
+import group.MemberRemove;
 import info.InfoFriend;
 import info.InfoSelf;
 import info.InfoUpdate;
@@ -91,6 +95,30 @@ public class Dispatcher {
             case ProtocolHeader.LOOK_FRIEND_INFO:
                 Friend friend = Serializer.deserialize(messageHolder.getBody(), Friend.class);
                 new InfoFriend(friend, messageHolder.getChannel()).deal();
+                break;
+
+            // 创建讨论组
+            case ProtocolHeader.CREATE_GROUP:
+                Group cGroup = Serializer.deserialize(messageHolder.getBody(), Group.class);
+                new CreateGroup(cGroup, messageHolder.getChannel()).deal();
+                break;
+
+            // 解散讨论组
+            case ProtocolHeader.DISBAND_GROUP:
+                Group dGroup = Serializer.deserialize(messageHolder.getBody(), Group.class);
+                new DisbandGroup(dGroup, messageHolder.getChannel()).deal();
+                break;
+
+            // 讨论组添加成员
+            case ProtocolHeader.ADD_MEMBER:
+                Member aMember = Serializer.deserialize(messageHolder.getBody(), Member.class);
+                new MemberAdd(aMember, messageHolder.getChannel()).deal();
+                break;
+
+            // 讨论组删除成员
+            case ProtocolHeader.REMOVE_MEMBER:
+                Member rMember = Serializer.deserialize(messageHolder.getBody(), Member.class);
+                new MemberRemove(rMember, messageHolder.getChannel()).deal();
                 break;
 
             // 请求错误
