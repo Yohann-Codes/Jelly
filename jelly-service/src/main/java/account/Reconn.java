@@ -11,7 +11,6 @@ import io.netty.util.concurrent.Future;
 import json.Serializer;
 import operation.GroupMsgDao;
 import operation.MsgDao;
-import operation.UserDao;
 import org.apache.log4j.Logger;
 import pojo.*;
 import protocol.MessageHolder;
@@ -20,49 +19,34 @@ import protocol.ProtocolHeader;
 import java.util.List;
 
 /**
- * 登录服务.
- * <p>
+ * 断线重连服务.
  *
  * @author Yohann.
  */
-public class Login {
-    private static final Logger logger = Logger.getLogger(Login.class);
+public class Reconn {
+    private static final Logger logger = Logger.getLogger(Reconn.class);
 
-     private Channel channel;
-     private String username;
-     private String password;
+    private Channel channel;
+    private String username;
+    private Long token;
 
-     public Login(Account account, Channel channel) {
-     username = account.getUsername();
-     password = account.getPassword();
-     this.channel = channel;
-     }
+    public Reconn(Account account, Channel channel) {
+        username = account.getUsername();
+        token = account.getToken();
+        this.channel = channel;
+    }
 
-     /**
+    /**
      * 登录信息验证
      */
     public void deal() {
-        UserDao userDao = null;
-        try {
-            userDao = new UserDao();
-            userDao.connect();
-            List<User> users = userDao.queryByUsername(username);
-            if (users.size() == 1) {
-                if (password.equals(users.get(0).getPassword())) {
-                    // 成功
-                    success();
-                } else {
-                    // 失败，密码错误
-                    defeat(ProtocolHeader.REQUEST_ERROR);
-                }
-            } else {
-                // 失败，用户名错误
-                defeat(ProtocolHeader.REQUEST_ERROR);
-            }
-        } finally {
-            if (userDao != null) {
-                userDao.close();
-            }
+        // 验证token
+        if (TokenPool.query(token)) {
+            success();
+        } else {
+            // token验证失败
+            defeat(ProtocolHeader.REQUEST_ERROR);
+            logger.info("token验证失败，拒绝重连");
         }
     }
 
@@ -71,16 +55,16 @@ public class Login {
      */
     @SuppressWarnings("unchecked")
     private void success() {
-        Long token = init();
+        // 维护连接
+        boolean b = ConnPool.add(username, channel);
         // 发送响应数据包
         Account acc = new Account();
         acc.setUsername(username);
-        acc.setToken(token);
         Future future = sendResponse(ProtocolHeader.SUCCESS, Serializer.serialize(acc));
         future.addListener(new ChannelFutureListener() {
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {
-                    logger.info(username + " 登录成功");
+                    logger.info(username + " 重连成功");
                     // 开启心跳检测
                     logger.info(username + " 开启心跳检测");
                     channel.pipeline().addAfter("IdleStateHandler",
@@ -95,7 +79,7 @@ public class Login {
                                 @Override
                                 public void operationComplete(ChannelFuture future) throws Exception {
                                     if (future.isSuccess()) {
-                                        logger.info(username + " 登录成功");
+                                        logger.info(username + " 重连成功");
                                         // 开启心跳检测
                                         logger.info(username + " 开启心跳检测");
                                         channel.pipeline().addAfter("IdleStateHandler",
@@ -124,14 +108,14 @@ public class Login {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {
-                    logger.info(username + " 登录失败");
+                    logger.info(username + " 重连失败");
                     channel.close().sync();
                 } else {
                     sendResponse(status, "").addListener(new ChannelFutureListener() {
                         @Override
                         public void operationComplete(ChannelFuture future) throws Exception {
                             if (future.isSuccess()) {
-                                logger.info(username + " 登录失败");
+                                logger.info(username + " 重连失败");
                                 channel.close().sync();
                             }
                         }
@@ -161,7 +145,7 @@ public class Login {
     private Future sendResponse(byte status, String body) {
         MessageHolder messageHolder = new MessageHolder();
         messageHolder.setSign(ProtocolHeader.RESPONSE);
-        messageHolder.setType(ProtocolHeader.LOGIN);
+        messageHolder.setType(ProtocolHeader.RECONN);
         messageHolder.setStatus(status);
         messageHolder.setBody(body);
         return channel.writeAndFlush(messageHolder);

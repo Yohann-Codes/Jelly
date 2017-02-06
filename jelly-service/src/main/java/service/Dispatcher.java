@@ -11,11 +11,13 @@ import group.DisbandGroup;
 import group.MemberAdd;
 import group.MemberRemove;
 import info.InfoFriend;
+import info.InfoGroup;
 import info.InfoSelf;
 import info.InfoUpdate;
 import io.netty.channel.Channel;
 import io.netty.util.ReferenceCountUtil;
 import json.Serializer;
+import message.GroupMessage;
 import message.PersonMessage;
 import pojo.*;
 import protocol.MessageHolder;
@@ -119,6 +121,24 @@ public class Dispatcher {
             case ProtocolHeader.REMOVE_MEMBER:
                 Member rMember = Serializer.deserialize(messageHolder.getBody(), Member.class);
                 new MemberRemove(rMember, messageHolder.getChannel()).deal();
+                break;
+
+            // 讨论组消息
+            case ProtocolHeader.GROUP_MESSAGE:
+                Message gMessage = Serializer.deserialize(messageHolder.getBody(), Message.class);
+                new GroupMessage(gMessage, messageHolder.getChannel()).deal();
+                break;
+
+            // 查看所在讨论组
+            case ProtocolHeader.LOOK_GROUP_INFO:
+                MyGroup myGroup = Serializer.deserialize(messageHolder.getBody(), MyGroup.class);
+                new InfoGroup(myGroup, messageHolder.getChannel()).deal();
+                break;
+
+            // 断线重连
+            case ProtocolHeader.RECONN:
+                Account reconn = Serializer.deserialize(messageHolder.getBody(), Account.class);
+                new Reconn(reconn, messageHolder.getChannel()).deal();
                 break;
 
             // 请求错误

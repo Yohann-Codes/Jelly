@@ -30,11 +30,9 @@ public class PersonMessage {
     private String receiver;
     private String content;
     private Long time;
-    private Message message;
 
     public PersonMessage(Message message, Channel channel) {
         this.channel = channel;
-        this.message = message;
         sender = message.getSender();
         receiver = message.getReceiver();
         content = message.getContent();
@@ -45,7 +43,7 @@ public class PersonMessage {
         // 在Online用户中查找，ConnPool
         Channel recChannel = ConnPool.query(receiver);
         if (recChannel != null) {
-            online(recChannel, message);
+            online(recChannel);
         } else {
             // 在Offline用户中查找，数据库
             offline();
@@ -56,12 +54,16 @@ public class PersonMessage {
      * 在线消息
      *
      * @param recChannel
-     * @param message
      */
     @SuppressWarnings("unchecked")
-    private void online(Channel recChannel, Message message) {
+    private void online(Channel recChannel) {
         // 转发消息
-        String body = Serializer.serialize(message);
+        Message message = new Message();
+        message.setSender(sender);
+        message.setReceiver(receiver);
+        message.setContent(content);
+        message.setTime(time);
+        String body = Serializer.serialize(time);
         Future future = sendMessage(recChannel, body);
         future.addListener(new ChannelFutureListener() {
             @Override
@@ -157,7 +159,7 @@ public class PersonMessage {
             @Override
             public void operationComplete(ChannelFuture future) throws Exception {
                 if (!future.isSuccess()) {
-                    sendResponse(ProtocolHeader.SUCCESS, "");
+                    sendResponse(status, "");
                 }
             }
         });
