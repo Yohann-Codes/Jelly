@@ -63,7 +63,7 @@ public class PersonMessage {
         message.setReceiver(receiver);
         message.setContent(content);
         message.setTime(time);
-        String body = Serializer.serialize(time);
+        String body = Serializer.serialize(message);
         Future future = sendMessage(recChannel, body);
         future.addListener(new ChannelFutureListener() {
             @Override
